@@ -1,0 +1,443 @@
+:root {
+  color-scheme: dark;
+  font-family: "Manrope", sans-serif;
+  color: #f3f1f8;
+  background: #070914;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  min-height: 480px;
+  margin: 0;
+  overflow: hidden;
+}
+
+button,
+a {
+  color: inherit;
+  font: inherit;
+}
+
+.experience {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #080b19;
+}
+
+#city,
+.vignette,
+.grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#city {
+  display: block;
+}
+
+.vignette {
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgb(5 7 17 / 77%) 0%, rgb(5 7 17 / 52%) 27%, transparent 64%),
+    linear-gradient(0deg, rgb(5 7 17 / 73%) 0%, transparent 22%, transparent 78%, rgb(5 7 17 / 42%) 100%),
+    radial-gradient(ellipse at 68% 48%, transparent 26%, rgb(5 7 17 / 28%) 100%);
+}
+
+.grain {
+  z-index: 2;
+  opacity: 0.11;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+}
+
+.topbar,
+.bottombar {
+  position: absolute;
+  z-index: 3;
+  right: clamp(22px, 5.2vw, 82px);
+  left: clamp(22px, 5.2vw, 82px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar {
+  top: clamp(22px, 4.2vh, 44px);
+}
+
+.wordmark {
+  display: inline-flex;
+  gap: 11px;
+  align-items: center;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.wordmark-icon {
+  color: #f48acb;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.wordmark-divider {
+  color: #737387;
+  font-weight: 400;
+}
+
+.live-status,
+.eyebrow,
+.coordinates,
+.flight-controls,
+.flight-data,
+.pause-overlay {
+  font-family: "DM Mono", monospace;
+}
+
+.live-status {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: rgb(235 230 246 / 66%);
+  font-size: 9px;
+  letter-spacing: 0.13em;
+}
+
+.status-dot,
+.eyebrow span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff6ea8;
+  box-shadow: 0 0 12px #ff6ea8;
+}
+
+.status-dot {
+  animation: blink 2s ease-in-out infinite;
+}
+
+.intro {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: clamp(28px, 11.5vw, 178px);
+  width: min(440px, calc(100vw - 56px));
+  transform: translateY(-45%);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.experience.is-flying .intro {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-48%);
+}
+
+.eyebrow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 0 22px;
+  color: #e3c3e1;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+
+.eyebrow span {
+  display: inline-block;
+  background: #8bdbff;
+  box-shadow: 0 0 12px #8bdbff;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 600;
+  letter-spacing: -0.085em;
+  line-height: 0.99;
+}
+
+h1 em {
+  color: #f28ac8;
+  font-weight: 500;
+}
+
+.intro-copy {
+  margin: 23px 0 30px;
+  color: rgb(226 224 238 / 65%);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.start-button {
+  display: inline-flex;
+  min-width: 206px;
+  height: 52px;
+  gap: 18px;
+  align-items: center;
+  padding: 0 18px;
+  border: 1px solid rgb(255 255 255 / 27%);
+  background: rgb(14 15 31 / 46%);
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  backdrop-filter: blur(12px);
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  border-color: #f28ac8;
+  background: rgb(242 138 200 / 13%);
+}
+
+.play-icon {
+  color: #f28ac8;
+  font-size: 10px;
+}
+
+.button-arrow {
+  margin-left: auto;
+  color: #f28ac8;
+  font-size: 15px;
+}
+
+.flight-data {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: clamp(28px, 8.5vw, 132px);
+  width: 172px;
+  padding: 16px 0;
+  color: #f1eefa;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  transform: translateY(-40%);
+}
+
+.data-row {
+  display: grid;
+  grid-template-columns: 1fr auto 25px;
+  gap: 9px;
+  align-items: baseline;
+  padding: 11px 0;
+}
+
+.data-row span:nth-child(2) {
+  font-size: 12px;
+}
+
+.data-label,
+.data-unit {
+  color: rgb(217 211 231 / 53%);
+  font-size: 8px;
+}
+
+.data-unit {
+  text-align: right;
+}
+
+.data-rule {
+  height: 1px;
+  background: rgb(230 220 246 / 16%);
+}
+
+.bottombar {
+  bottom: clamp(22px, 4vh, 40px);
+}
+
+.coordinates {
+  color: rgb(229 224 241 / 65%);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.coordinate-mark {
+  margin-right: 8px;
+  color: #f28ac8;
+  font-size: 14px;
+  vertical-align: -1px;
+}
+
+.coordinate-separator {
+  margin: 0 9px;
+  color: rgb(229 224 241 / 33%);
+}
+
+.flight-controls {
+  display: flex;
+  gap: clamp(12px, 2.1vw, 32px);
+  align-items: center;
+  color: rgb(229 224 241 / 65%);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+.control-hint {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+
+kbd {
+  display: inline-grid;
+  width: 19px;
+  height: 19px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 24%);
+  color: #f4ecfa;
+  font: inherit;
+  font-size: 8px;
+}
+
+.control-hint:nth-child(2) kbd {
+  width: 38px;
+  font-size: 7px;
+}
+
+.icon-button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: 50%;
+  background: rgb(14 15 31 / 46%);
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible {
+  border-color: #f28ac8;
+  background: rgb(242 138 200 / 14%);
+}
+
+.speed-button {
+  font-size: 9px;
+}
+
+.pause-overlay {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  display: none;
+  padding: 16px 22px;
+  border: 1px solid rgb(255 255 255 / 24%);
+  background: rgb(7 9 20 / 78%);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(12px);
+}
+
+.pause-overlay span {
+  color: rgb(229 224 241 / 56%);
+  font-size: 8px;
+}
+
+.pause-overlay.is-visible {
+  display: block;
+}
+
+@keyframes blink {
+  50% { opacity: 0.35; }
+}
+
+@media (max-width: 700px) {
+  .vignette {
+    background:
+      linear-gradient(90deg, rgb(5 7 17 / 72%), rgb(5 7 17 / 20%) 88%),
+      linear-gradient(0deg, rgb(5 7 17 / 78%), transparent 42%, rgb(5 7 17 / 35%));
+  }
+
+  .intro {
+    top: 48%;
+    left: 8vw;
+  }
+
+  h1 {
+    font-size: clamp(54px, 12vw, 76px);
+  }
+
+  .flight-data {
+    top: auto;
+    right: 8vw;
+    bottom: 86px;
+    width: 142px;
+    transform: none;
+  }
+
+  .data-row {
+    padding: 7px 0;
+  }
+
+  .coordinates {
+    display: none;
+  }
+
+  .bottombar {
+    justify-content: flex-end;
+  }
+
+  .flight-controls {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .control-hint {
+    display: none;
+  }
+
+  .flight-data {
+    right: 7vw;
+    bottom: 82px;
+  }
+
+  .intro-copy {
+    margin: 16px 0 22px;
+  }
+
+  .pause-overlay {
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    text-align: center;
+    line-height: 2;
+  }
+
+  .pause-overlay span {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
