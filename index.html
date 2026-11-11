@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#070914" />
+    <meta
+      name="description"
+      content="Take a quiet, neon-lit flight through the city after dark."
+    />
+    <link rel="icon" href="data:," />
+    <title>Night City — After Hours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="experience" aria-label="Night city flight simulator">
+      <canvas id="city" aria-label="Animated view flying through a neon city"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <a class="wordmark" href="#" aria-label="Night City home">
+          <span class="wordmark-icon" aria-hidden="true">✳</span>
+          <span>NOCTURNE<span class="wordmark-divider"> / </span>01</span>
+        </a>
+        <div class="live-status"><span class="status-dot"></span> LIVE FEED</div>
+      </header>
+
+      <section class="intro" aria-live="polite">
+        <p class="eyebrow"><span></span> 02:47 AM &nbsp;·&nbsp; NIGHT FLIGHT</p>
+        <h1>Somewhere<br />between <em>here</em><br />and the <em>neon.</em></h1>
+        <p class="intro-copy">The city is yours tonight.<br />Take the long way home.</p>
+        <button class="start-button" id="start-button" type="button">
+          <span class="play-icon" aria-hidden="true">▶</span>
+          <span id="start-label">BEGIN FLIGHT</span>
+          <span class="button-arrow" aria-hidden="true">↗</span>
+        </button>
+      </section>
+
+      <aside class="flight-data" aria-label="Flight telemetry">
+        <div class="data-row"><span class="data-label">ALTITUDE</span><span id="altitude">0420</span><span class="data-unit">FT</span></div>
+        <div class="data-rule"></div>
+        <div class="data-row"><span class="data-label">VELOCITY</span><span id="velocity">068</span><span class="data-unit">MPH</span></div>
+        <div class="data-rule"></div>
+        <div class="data-row"><span class="data-label">SECTOR</span><span>SHIBUYA</span></div>
+      </aside>
+
+      <footer class="bottombar">
+        <div class="coordinates"><span class="coordinate-mark">⌖</span> 35°39′N&nbsp; 139°42′E <span class="coordinate-separator">/</span> TOKYO, JP</div>
+        <div class="flight-controls">
+          <span class="control-hint"><kbd>←</kbd><kbd>→</kbd> STEER</span>
+          <span class="control-hint"><kbd>SPACE</kbd> PAUSE</span>
+          <button class="icon-button" id="pause-button" type="button" aria-label="Pause flight" title="Pause flight" disabled>
+            <span class="pause-icon" aria-hidden="true">Ⅱ</span>
+          </button>
+          <button class="icon-button speed-button" id="speed-button" type="button" aria-label="Change flight speed" title="Change flight speed">×1</button>
+        </div>
+      </footer>
+      <div class="pause-overlay" id="pause-overlay" aria-hidden="true">FLIGHT PAUSED <span>— PRESS SPACE TO RESUME</span></div>
+    </main>
+  </body>
+</html>
